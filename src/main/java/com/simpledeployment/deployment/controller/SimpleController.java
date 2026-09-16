@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SimpleController {
 
-    @GetMapping("/")
+    @GetMapping("/test")
     public String simple(){
         return "Simple Deployment is working fine";
     }
