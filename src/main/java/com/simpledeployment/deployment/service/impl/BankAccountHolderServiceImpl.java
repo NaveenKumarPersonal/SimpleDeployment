@@ -56,4 +56,10 @@ public class BankAccountHolderServiceImpl implements BankAccountHolderService {
                 .orElseThrow(() -> new NoSuchElementException("Account not found"));
         repository.delete(account);
     }
+
+    @Override
+    public BankAccount getBankAccountHolder(String accountId) {
+        return repository.findByAccountId(accountId)
+                .orElseThrow(() -> new NoSuchElementException("Account not found"));
+    }
 }

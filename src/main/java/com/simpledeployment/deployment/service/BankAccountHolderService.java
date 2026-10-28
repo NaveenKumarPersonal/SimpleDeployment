@@ -10,4 +10,6 @@ public interface BankAccountHolderService {
     BankAccount updateAccount(BankAccountUpdateRequest request);
 
     void deleteAccount(String accountId);
+
+    BankAccount getBankAccountHolder(String accountId);
 }

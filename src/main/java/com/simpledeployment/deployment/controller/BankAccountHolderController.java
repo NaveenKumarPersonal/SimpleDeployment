@@ -7,10 +7,7 @@ import com.simpledeployment.deployment.service.BankAccountHolderService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BankAccountHolderController {
@@ -21,6 +18,11 @@ public class BankAccountHolderController {
         this.service = service;
     }
 
+    @GetMapping("/getAccount/{accountId}")
+    public ResponseEntity<BankAccount> getAccount(@PathVariable String accountId) {
+        BankAccount account = service.getBankAccountHolder(accountId);
+        return ResponseEntity.ok(account);
+    }
     @PostMapping("/createAccount")
     public ResponseEntity<BankAccount> createAccount(@Valid @RequestBody BankAccountRequest request) {
         BankAccount saved = service.createBankAccountHolder(request);
